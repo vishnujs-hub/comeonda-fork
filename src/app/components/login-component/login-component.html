@@ -1,0 +1,42 @@
+<mat-grid-list cols="2" rowHeight="100vh">
+  <mat-grid-tile class="grid-left"> </mat-grid-tile>
+  <mat-grid-tile>
+    <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+      <div class="div-right">
+        <h1>Welcome</h1>
+        <label class="login-label"
+          >Username <span style="color: red">*</span></label
+        >
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            style="width: 100%"
+            placeholder="Username"
+            formControlName="name"
+          />
+        </mat-form-field>
+
+        <label class="login-label"
+          >Password <span style="color: red">*</span></label
+        >
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            style="width: 100%"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          [ngClass]="loginForm.invalid ? 'buttonClass-disabled' : 'buttonClass'"
+        >
+          Log in
+        </button>
+      </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

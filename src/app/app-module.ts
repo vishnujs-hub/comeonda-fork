@@ -22,6 +22,8 @@ import { Sidenav } from './components/sidenav/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Sports } from './components/sports/sports';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [App, LoginComponent, User, Applayout, Sidenav, Sports],
@@ -37,6 +39,8 @@ import { Sports } from './components/sports/sports';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

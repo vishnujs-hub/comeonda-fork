@@ -53,6 +53,52 @@ export class Authservice {
       );
   }
 
+  addSports(data: { sports: string }): Observable<any[]> {
+    const params = {
+      sports: data.sports,
+    };
+
+    return this.http
+      .post(`${this.baseUrl}/v2/save_sports?sports=${params.sports}`, {
+        params,
+      })
+      .pipe(
+        map((res: any) => {
+          console.log('res', res.response);
+          return res.response || {};
+        }),
+        catchError(this.handleError)
+      );
+  }
+  updateSports(data: { sports: string; id: string }): Observable<any[]> {
+    const value = {
+      id: data.id,
+      sports: data.sports,
+    };
+
+    return this.http.post(`${this.baseUrl}/v2/update_sports`, value).pipe(
+      map((res: any) => {
+        console.log('res', res.response);
+        return res.response || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  deleteSports(id: string): Observable<any> {
+    const params = {
+      sports_id: id,
+    };
+    return this.http
+      .delete(`${this.baseUrl}/v2/delete_sports`, { params })
+      .pipe(
+        map((res: any) => {
+          console.log('res', res.response);
+          return res.response || {};
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   private ReturnResponseData(response: any) {
     return response;
   }

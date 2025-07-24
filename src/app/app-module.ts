@@ -24,9 +24,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { Sports } from './components/sports/sports';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { Dialogbox } from './components/dialogbox/dialogbox';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DeleteDialog } from './components/delete-dialog/delete-dialog';
 
 @NgModule({
-  declarations: [App, LoginComponent, User, Applayout, Sidenav, Sports],
+  declarations: [
+    App,
+    LoginComponent,
+    User,
+    Applayout,
+    Sidenav,
+    Sports,
+    Dialogbox,
+    DeleteDialog,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,6 +53,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

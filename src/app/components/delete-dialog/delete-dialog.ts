@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Sports } from '../sports/sports';
 
 @Component({
@@ -10,7 +10,8 @@ import { Sports } from '../sports/sports';
 })
 export class DeleteDialog {
   dialogRef = inject(MatDialogRef<Sports>);
+  data = inject(MAT_DIALOG_DATA);
   handleDelete() {
-    this.dialogRef.close();
+    this.dialogRef.close('confirmed');
   }
 }

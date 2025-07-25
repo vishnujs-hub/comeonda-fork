@@ -104,22 +104,40 @@ export class Sports implements OnInit {
     const dialogRef = this.dialog.open(DeleteDialog, {
       minWidth: '500px',
       height: 'auto',
+      data: {
+        title: 'Delete Sports',
+        message: 'Are you sure you want to remove this sport?',
+        button: 'Yes, Confirm',
+      },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(id, 'result');
-      this.authService.deleteSports(id).subscribe({
-        next: (res: any) => {
-          this.snackBar.open(res, 'Close', {
-            horizontalPosition: 'end',
-            verticalPosition: 'bottom',
-            duration: 1000,
-          });
-          this.loadSportsData();
-        },
-        error: (err: any) => {
-          console.error(err);
-        },
-      });
+      if (result === 'confirmed') {
+        this.authService.deleteSports(id).subscribe({
+          next: (res: any) => {
+            this.snackBar.open(res, 'Close', {
+              horizontalPosition: 'end',
+              verticalPosition: 'bottom',
+              duration: 1000,
+            });
+            this.loadSportsData();
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      }
+    });
+  }
+  openDialogAbout() {
+    this.dialog.open(DeleteDialog, {
+      minWidth: '500px',
+      height: 'auto',
+      data: {
+        title: 'About Sports',
+        message: 'Heres to add sports!!!',
+        button: 'Okay',
+      },
     });
   }
 }

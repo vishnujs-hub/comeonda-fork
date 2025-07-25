@@ -1,7 +1,7 @@
-<h2 mat-dialog-title>Delete Sports</h2>
+<h2 mat-dialog-title>{{ data.title }}</h2>
 <mat-dialog-content class="mat-typography">
-  <p>Are you sure you want to remove this sport?</p>
+  <p>{{ data.message }}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button matButton (click)="handleDelete()">Yes, Confirm</button>
+  <button matButton (click)="handleDelete()">{{ data.button }}</button>
 </mat-dialog-actions>
